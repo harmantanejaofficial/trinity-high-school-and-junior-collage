@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trinity High School & Junior College | Vasai East</title>
+    <style>
+        :root {
+            --primary-color: #8B0000;      /* Deep Red / Crimson */
+            --secondary-color: #A52A2A;    /* Brownish Red / Firebrick */
+            --accent-color: #FF4500;       /* Orange-Red Accent */
+            --light-bg: #FFF5F5;           /* Soft Light Reddish Tint */
+            --text-color: #2D1515;         /* Deep Warm Dark for text */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--light-bg);
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .logo-area {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-area h1 {
+            font-size: 1.4rem;
+            letter-spacing: 0.5px;
+        }
+
+        .logo-area span {
+            font-size: 0.8rem;
+            color: #ffcccc;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffccd5;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(139, 0, 0, 0.85), rgba(165, 42, 42, 0.85)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 130px 20px;
+        }
+
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 650px;
+            margin: 0 auto 30px auto;
+            color: #ffe6e6;
+        }
+
+        .btn {
+            background: var(--accent-color);
+            color: white;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: #cc3700;
+        }
+
+        /* Gallery / Institute Images Section */
+        .gallery-section {
+            padding: 60px 5%;
+            background: white;
+            text-align: center;
+        }
+
+        .gallery-section h3 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .gallery-section > p {
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(139, 0, 0, 0.1);
+            border: 1px solid #ffd6d6;
+            transition: transform 0.3s;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .gallery-card p {
+            padding: 15px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        /* About / Location Highlight */
+        .info-strip {
+            background: #fff0f0;
+            padding: 40px 5%;
+            text-align: center;
+            border-top: 1px solid #ffd6d6;
+            border-bottom: 1px solid #ffd6d6;
+        }
+
+        .info-strip h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .info-strip p {
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Highlights / Features Grid */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 60px 5%;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(139, 0, 0, 0.05);
+            border-top: 4px solid var(--secondary-color);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: #ffe6e6;
+            padding: 60px 5%;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .contact-details {
+            font-size: 1.05rem;
+            color: #444;
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            font-size: 0.9rem;
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            z-index: 100;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* Chatbot Widget Styles */
+        .chatbot-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .chatbot-toggle-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 20px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.3s;
+        }
+
+        .chatbot-toggle-btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .chatbot-window {
+            display: none;
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            width: 320px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            border: 1px solid #ffd6d6;
+            overflow: hidden;
+            flex-direction: column;
+        }
+
+        .chatbot-header {
+            background: var(--primary-color);
+            color: white;
+            padding: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .chatbot-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .chatbot-messages {
+            height: 250px;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background: #fff9f9;
+        }
+
+        .bot-msg, .user-msg {
+            padding: 8px 12px;
+            border-radius: 8px;
+            max-width: 80%;
+            font-size: 0.9rem;
+        }
+
+        .bot-msg {
+            background: #f2d9d9;
+            color: var(--text-color);
+            align-self: flex-start;
+        }
+
+        .user-msg {
+            background: var(--primary-color);
+            color: white;
+            align-self: flex-end;
+        }
+
+        .chatbot-input-area {
+            display: flex;
+            border-top: 1px solid #ffd6d6;
+        }
+
+        .chatbot-input-area input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            outline: none;
+            font-size: 0.9rem;
+        }
+
+        .chatbot-input-area button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0 15px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .chatbot-input-area button:hover {
+            background: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-area">
+            <h1>Trinity High School</h1>
+            <span>Rajavali, Vasai East</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#gallery">Campus</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#academics">Academics</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h2>Shaping Futures at Trinity High School</h2>
+        <p>Providing quality education, strong moral values, and an environment designed for holistic student growth near Rajavali, Vasai East.</p>
+        <a href="#contact" class="btn">Admissions Open</a>
+    </section>
+
+    <section id="gallery" class="gallery-section">
+        <h3>Our Campus & Infrastructure</h3>
+        <p>Take a quick look at the dynamic learning spaces we provide for our students.</p>
+        <div class="gallery-grid">
+            <div class="gallery-card">
+                <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=600&q=80" alt="School Building">
+                <p>🏫 Modern School Building</p>
+            </div>
+            <div class="gallery-card">
+                <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=600&q=80" alt="Classroom">
+                <p>💻 Smart & Spacious Classrooms</p>
+            </div>
+            <div class="gallery-card">
+                <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=600&q=80" alt="Students Learning">
+                <p>🏆 Activities & Student Engagement</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="info-strip">
+        <h3>Rooted in Rajavali, Vasai East</h3>
+        <p>Conveniently located near local community landmarks (such as Waghral Pada Road / Sanatan Gaushala area), Trinity High School focuses on building academic excellence, discipline, and participation in co-curricular activities for young learners.</p>
+    </section>
+
+    <section id="academics" class="features">
+        <div class="card">
+            <h3>📚 Structured Curriculum</h3>
+            <p>Comprehensive primary and secondary learning modules aligned to foster critical thinking and strong foundational concepts.</p>
+        </div>
+        <div class="card">
+            <h3>🏫 Dedicated Faculty</h3>
+            <p>Experienced and approachable educators committed to guiding each student toward their maximum potential.</p>
+        </div>
+        <div class="card">
+            <h3>🎨 Holistic Development</h3>
+            <p>Equal emphasis on sports, cultural events, arts, and value-based education alongside core academics.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <h2>Get in Touch</h2>
+        <p class="contact-details">📍 <strong>Location:</strong> Rajavali, Waghral Pada Road, Vasai East, Palghar - 401208</p>
+        <p class="contact-details">📞 For admissions, timing, and fee inquiries, visit the campus office during working hours or chat with us below!</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Trinity High School (Rajavali, Vasai East). All Rights Reserved.</p>
+    </footer>
+
+    <a href="https://wa.me/919876543210?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20admissions%20at%20Trinity%20High%20School." class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+        💬
+    </a>
+
+    <div class="chatbot-container">
+        <button class="chatbot-toggle-btn" onclick="toggleChatbot()">
+            🤖 Ask Trinity AI
+        </button>
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <span>Trinity Support Assistant</span>
+                <button class="chatbot-close" onclick="toggleChatbot()">&times;</button>
+            </div>
+            <div class="chatbot-messages" id="chatMessages">
+                <div class="bot-msg">Hello! Welcome to Trinity High School, Vasai East. How can I help you today? Feel free to ask about admissions, timings, or location!</div>
+            </div>
+            <div class="chatbot-input-area">
+                <input type="text" id="userInput" placeholder="Type a message..." onkeypress="handleKeyPress(event)">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle Chatbot Window Visibility
+        function toggleChatbot() {
+            const windowEl = document.getElementById('chatbotWindow');
+            windowEl.style.display = windowEl.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        // Handle Enter Key Press
+        function handleKeyPress(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        // Simple Rule-Based Chatbot Logic
+        function sendMessage() {
+            const inputEl = document.getElementById('userInput');
+            const messageText = inputEl.value.trim();
+            if (!messageText) return;
+
+            const chatMessages = document.getElementById('chatMessages');
+
+            // Append User Message
+            const userDiv = document.createElement('div');
+            userDiv.className = 'user-msg';
+            userDiv.textContent = messageText;
+            chatMessages.appendChild(userDiv);
+
+            inputEl.value = '';
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            // Generate Bot Response
+            setTimeout(() => {
+                const botDiv = document.createElement('div');
+                botDiv.className = 'bot-msg';
+                
+                const lowerText = messageText.toLowerCase();
+                if (lowerText.includes('admission') || lowerText.includes('fee') || lowerText.includes('seat')) {
+                    botDiv.textContent = "Admissions are currently open for the academic year! You can visit our campus office near Waghral Pada Road, Vasai East, or click the WhatsApp icon to chat directly.";
+                } else if (lowerText.includes('location') || lowerText.includes('address') || lowerText.includes('where')) {
+                    botDiv.textContent = "We are located at Rajavali, Waghral Pada Road, Vasai East, Palghar - 401208.";
+                } else if (lowerText.includes('timing') || lowerText.includes('time') || lowerText.includes('hours')) {
+                    botDiv.textContent = "School office hours are Monday to Saturday, 8:00 AM to 2:00 PM.";
+                } else {
+                    botDiv.textContent = "Thanks for asking! For specific inquiries, please visit our campus or reach out via WhatsApp for a quick response.";
+                }
+
+                chatMessages.appendChild(botDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 600);
+        }
+    </script>
+</body>
+</html>
